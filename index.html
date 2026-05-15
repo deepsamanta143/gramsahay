@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GramSahay — Civic Issue Reporting via WhatsApp</title>
+<meta name="description" content="GramSahay is a WhatsApp-based platform that connects rural citizens with community coordinators to resolve civic issues — fast, trackable, and transparent.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc;
+    --earth: #b7791f; --earth-light: #f6ad55;
+    --cream: #fefae0; --dark: #1b1b1b; --text: #3d3d3d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center;
+    background: rgba(254,250,224,0.93); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(45,106,79,0.15);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--green); }
+  .nav-logo span { color: var(--earth); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--green); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 8rem 2rem 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(82,183,136,0.12) 0%, transparent 70%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block; background: var(--green-pale); color: var(--green);
+    padding: 0.4rem 1.2rem; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px;
+    margin-bottom: 2rem; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 900;
+    line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem;
+    max-width: 780px;
+  }
+  .hero h1 em { font-style: normal; color: var(--green); }
+  .hero .tagline {
+    font-size: 1.15rem; line-height: 1.75; opacity: 0.8;
+    margin-bottom: 3rem; max-width: 560px; font-weight: 300;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary {
+    background: var(--green); color: white; padding: 0.95rem 2.2rem;
+    border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem;
+    display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: #1e4d38; transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent; color: var(--green); padding: 0.95rem 2.2rem;
+    border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem;
+    border: 1.5px solid var(--green); transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--green-pale); }
+
+  /* STATS STRIP */
+  .stats {
+    background: var(--green); padding: 2.5rem 4rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; text-align: center;
+  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--earth-light); }
+  .stat-label { color: rgba(255,255,255,0.8); font-size: 0.88rem; margin-top: 0.3rem; }
+
+  /* PROBLEM — minimal */
+  .problem {
+    padding: 7rem 2rem; max-width: 860px; margin: 0 auto; text-align: center;
+  }
+  .section-tag { display: inline-block; background: var(--green-pale); color: var(--green); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: var(--dark); margin-bottom: 1.2rem; line-height: 1.2; }
+  .section-body { font-size: 1.05rem; line-height: 1.8; opacity: 0.75; font-weight: 300; max-width: 620px; margin: 0 auto; }
+
+  /* WHAT WE DO — 3 pillars, vague but compelling */
+  .pillars { background: var(--dark); padding: 7rem 2rem; }
+  .pillars-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .pillars .section-tag { background: rgba(82,183,136,0.2); color: var(--green-light); }
+  .pillars .section-title { color: white; margin-bottom: 0.8rem; }
+  .pillars .section-body { color: rgba(255,255,255,0.55); margin-bottom: 4rem; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .pillar {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
+    transition: all 0.3s;
+  }
+  .pillar:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
+  .pillar-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(82,183,136,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin: 0 auto 1.5rem;
+  }
+  .pillar-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 0.8rem; }
+  .pillar-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+  /* WHY WHATSAPP */
+  .why { padding: 7rem 2rem; max-width: 860px; margin: 0 auto; text-align: center; }
+  .why-points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; text-align: left; }
+  .why-point {
+    background: white; border-radius: 14px; padding: 1.5rem;
+    border: 0.5px solid rgba(45,106,79,0.12);
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .why-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); margin-top: 6px; flex-shrink: 0; }
+  .why-text { font-size: 0.92rem; line-height: 1.6; font-weight: 300; color: var(--text); }
+  .why-text strong { font-weight: 500; color: var(--dark); display: block; margin-bottom: 3px; }
+
+  /* CONTACT */
+  .contact { background: var(--green); padding: 7rem 2rem; text-align: center; }
+  .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: white; margin-bottom: 1rem; }
+  .contact p { color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .contact-cards { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+  .contact-card {
+    background: rgba(255,255,255,0.12); border-radius: 12px; padding: 1rem 1.8rem;
+    color: white; text-decoration: none; font-size: 0.95rem;
+    border: 0.5px solid rgba(255,255,255,0.2); transition: all 0.2s;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.2); }
+
+  footer {
+    background: var(--dark); padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: white; }
+  .footer-logo span { color: var(--earth-light); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: white; }
+  .footer-copy { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .hero > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero > *:nth-child(4) { animation-delay: 0.45s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+    .stats { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .why-points { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Gram<span>Sahay</span></div>
+  <ul class="nav-links">
+    <li><a href="#what">What We Do</a></li>
+    <li><a href="#why">Why WhatsApp</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">📱 Civic Tech · Rural India · WhatsApp</span>
+  <h1>Every Village Issue <em>Deserves</em> to be Heard</h1>
+  <p class="tagline">GramSahay connects rural citizens with community coordinators through WhatsApp — making civic issue reporting simple, trackable, and transparent for the first time.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Get In Touch</a>
+    <a href="#what" class="btn-secondary">Learn More</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div><div class="stat-num">70%+</div><div class="stat-label">WhatsApp penetration in Rural India</div></div>
+  <div><div class="stat-num">Zero</div><div class="stat-label">Apps to install for citizens</div></div>
+  <div><div class="stat-num">100%</div><div class="stat-label">Audit trail on every request</div></div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <span class="section-tag">The Problem</span>
+  <h2 class="section-title">Rural communities have no easy way to raise civic issues</h2>
+  <p class="section-body">When a road breaks, water supply fails, or a light goes out — villagers have no structured way to report it, no reference number to track it, and no guarantee it will ever be addressed. GramSahay changes that.</p>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="pillars" id="what">
+  <div class="pillars-inner">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">A platform built for rural India</h2>
+    <p class="section-body">GramSahay bridges the gap between citizens and community coordinators — using a channel everyone already has.</p>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">📢</div>
+        <div class="pillar-title">Report</div>
+        <div class="pillar-desc">Citizens raise any civic issue from their village — instantly, in their own language, without downloading anything.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🔔</div>
+        <div class="pillar-title">Notify</div>
+        <div class="pillar-desc">The right community coordinator is alerted immediately and given everything they need to take action.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">✅</div>
+        <div class="pillar-title">Resolve</div>
+        <div class="pillar-desc">Issues are tracked, updated, and closed — with citizens informed at every step until resolution.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WHATSAPP -->
+<section class="why" id="why">
+  <span class="section-tag">Why WhatsApp</span>
+  <h2 class="section-title">The app rural India already uses</h2>
+  <p class="section-body" style="margin-bottom:0;">WhatsApp isn't new to villages — it's already in everyone's pocket. GramSahay meets citizens exactly where they are.</p>
+  <div class="why-points">
+    <div class="why-point">
+      <div class="why-dot"></div>
+      <div class="why-text"><strong>No download required</strong>Works on any phone with WhatsApp — no installation, no account creation, no learning curve.</div>
+    </div>
+    <div class="why-point">
+      <div class="why-dot"></div>
+      <div class="why-text"><strong>Local language support</strong>Citizens interact in the language they are most comfortable with.</div>
+    </div>
+    <div class="why-point">
+      <div class="why-dot"></div>
+      <div class="why-text"><strong>Works on basic smartphones</strong>No high-end device or fast internet needed — just WhatsApp.</div>
+    </div>
+    <div class="why-point">
+      <div class="why-dot"></div>
+      <div class="why-text"><strong>Familiar and trusted</strong>Citizens already trust WhatsApp — no adoption barrier, immediate engagement.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Interested in GramSahay?</h2>
+  <p>Whether you want to deploy GramSahay in your region, explore a partnership, or simply learn more — we'd love to hear from you.</p>
+  <a href="mailto:your@gmail.com" class="btn-primary" style="display:inline-flex; margin-top:1rem;">✉️ &nbsp; Get In Touch</a>
+  <div class="contact-cards">
+    <a href="https://gramsahay.in" class="contact-card">🌐 gramsahay.in</a>
+    <a href="privacy.html" class="contact-card">🔒 Privacy Policy</a>
+    <a href="mailto:your@gmail.com" class="contact-card">📧 your@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Gram<span>Sahay</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 GramSahay. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
