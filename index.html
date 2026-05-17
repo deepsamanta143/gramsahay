@@ -28,7 +28,6 @@
   .nav-links a { text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--green); }
 
-  /* HERO */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
@@ -50,76 +49,114 @@
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 900;
-    line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem;
-    max-width: 780px;
+    line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem; max-width: 780px;
   }
   .hero h1 em { font-style: normal; color: var(--green); }
-  .hero .tagline {
-    font-size: 1.15rem; line-height: 1.75; opacity: 0.8;
-    margin-bottom: 3rem; max-width: 560px; font-weight: 300;
-  }
+  .hero .tagline { font-size: 1.15rem; line-height: 1.75; opacity: 0.8; margin-bottom: 3rem; max-width: 560px; font-weight: 300; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-  .btn-primary {
-    background: var(--green); color: white; padding: 0.95rem 2.2rem;
-    border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem;
-    display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s;
-  }
+  .btn-primary { background: var(--green); color: white; padding: 0.95rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; }
   .btn-primary:hover { background: #1e4d38; transform: translateY(-2px); }
-  .btn-secondary {
-    background: transparent; color: var(--green); padding: 0.95rem 2.2rem;
-    border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem;
-    border: 1.5px solid var(--green); transition: all 0.2s;
-  }
+  .btn-secondary { background: transparent; color: var(--green); padding: 0.95rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem; border: 1.5px solid var(--green); transition: all 0.2s; }
   .btn-secondary:hover { background: var(--green-pale); }
 
-  /* STATS STRIP */
-  .stats {
-    background: var(--green); padding: 2.5rem 4rem;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2rem; text-align: center;
-  }
+  .stats { background: var(--green); padding: 2.5rem 4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--earth-light); }
   .stat-label { color: rgba(255,255,255,0.8); font-size: 0.88rem; margin-top: 0.3rem; }
 
-  /* PROBLEM — minimal */
-  .problem {
-    padding: 7rem 2rem; max-width: 860px; margin: 0 auto; text-align: center;
-  }
   .section-tag { display: inline-block; background: var(--green-pale); color: var(--green); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: var(--dark); margin-bottom: 1.2rem; line-height: 1.2; }
-  .section-body { font-size: 1.05rem; line-height: 1.8; opacity: 0.75; font-weight: 300; max-width: 620px; margin: 0 auto; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
+  .section-sub { color: var(--text); opacity: 0.7; font-size: 1rem; line-height: 1.7; max-width: 560px; font-weight: 300; }
 
-  /* WHAT WE DO — 3 pillars, vague but compelling */
+  .problem { padding: 7rem 2rem; max-width: 860px; margin: 0 auto; text-align: center; }
+
+  /* HOW IT WORKS */
+  .how-section { padding: 7rem 2rem; background: white; }
+  .how-inner { max-width: 1100px; margin: 0 auto; }
+  .how-header { text-align: center; margin-bottom: 4rem; }
+
+  /* STEPS NAV */
+  .steps-nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+  .step-btn { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid rgba(45,106,79,0.3); background: white; color: var(--text); transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .step-btn.active { background: var(--green); color: white; border-color: var(--green); }
+  .step-btn:hover:not(.active) { background: var(--green-pale); }
+
+  /* PROGRESS */
+  .prog-bar { height: 4px; background: rgba(45,106,79,0.1); border-radius: 2px; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .prog-fill { height: 4px; background: var(--green); border-radius: 2px; transition: width 0.4s ease; }
+
+  /* FLOW LAYOUT */
+  .flow-layout { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: center; }
+
+  /* PHONE */
+  .phone-outer { display: flex; justify-content: center; }
+  .phone-frame { width: 280px; background: #1a1a1a; border-radius: 40px; padding: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+  .phone-screen { background: #ece5dd; border-radius: 30px; overflow: hidden; min-height: 480px; position: relative; }
+  .wa-head { background: #075e54; padding: 12px 14px; display: flex; align-items: center; gap: 10px; }
+  .wa-av { width: 38px; height: 38px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; color: white; font-weight: 500; }
+  .wa-name { color: white; font-size: 14px; font-weight: 500; }
+  .wa-status { color: rgba(255,255,255,0.7); font-size: 11px; }
+  .wa-body { padding: 12px 10px; display: flex; flex-direction: column; gap: 8px; }
+
+  /* BUBBLES */
+  .bbl { max-width: 88%; padding: 7px 10px; border-radius: 8px; font-size: 12px; line-height: 1.45; }
+  .bbl-in { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; color: #303030; }
+  .bbl-out { background: #dcf8c6; border-radius: 8px 8px 0 8px; align-self: flex-end; color: #303030; }
+  .bbl-time { font-size: 10px; color: #999; text-align: right; margin-top: 3px; }
+
+  /* BUTTON BUBBLES */
+  .bbl-btn-wrap { background: white; border-radius: 0 8px 8px 8px; overflow: hidden; align-self: flex-start; max-width: 88%; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+  .bbl-btn-body { padding: 7px 10px; font-size: 12px; color: #303030; border-bottom: 1px solid #f0f0f0; }
+  .bbl-btn-option { padding: 8px 10px; text-align: center; font-size: 12px; color: #128C7E; font-weight: 500; border-top: 1px solid #f0f0f0; }
+
+  /* LIST POPUP */
+  .list-popup { position: absolute; bottom: 0; left: 0; right: 0; background: white; border-radius: 16px 16px 0 0; padding: 16px; z-index: 10; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
+  .list-popup-title { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+  .list-popup-close { font-size: 16px; color: #666; cursor: pointer; }
+  .list-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+  .list-item-name { font-size: 13px; color: #1a1a1a; }
+  .list-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #ccc; flex-shrink: 0; }
+
+  /* LIST TRIGGER */
+  .bbl-list-trigger { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; overflow: hidden; max-width: 88%; }
+  .bbl-list-msg { padding: 7px 10px; font-size: 12px; color: #303030; border-bottom: 1px solid #f0f0f0; }
+  .bbl-list-btn { padding: 8px 10px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: #128C7E; font-weight: 500; cursor: pointer; }
+
+  /* TICKET BUBBLE */
+  .ticket-bbl { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; padding: 8px 10px; max-width: 92%; font-size: 11px; line-height: 1.5; color: #303030; }
+  .ticket-inner { background: #f0f7f0; border-radius: 6px; padding: 8px; margin-top: 6px; font-size: 11px; color: #1a5c3a; }
+  .ticket-num { font-weight: 700; font-size: 12px; color: #1a5c3a; }
+
+  /* COORDINATOR BUBBLE */
+  .coord-bbl { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; padding: 8px 10px; max-width: 92%; font-size: 11px; line-height: 1.6; color: #303030; }
+  .coord-link { display: inline-block; margin-top: 8px; background: var(--green); color: white; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 500; text-decoration: none; width: 100%; text-align: center; }
+
+  /* STEP INFO */
+  .step-info { }
+  .step-counter { font-size: 12px; font-weight: 500; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .step-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
+  .step-desc { font-size: 1rem; line-height: 1.75; color: var(--text); opacity: 0.8; margin-bottom: 1.5rem; font-weight: 300; }
+  .step-note { background: var(--green-pale); border-radius: 10px; padding: 12px 16px; font-size: 0.88rem; color: var(--green); border-left: 3px solid var(--green); line-height: 1.6; margin-bottom: 1.5rem; }
+  .nav-btns { display: flex; gap: 10px; }
+  .prev-btn { padding: 10px 22px; border-radius: 8px; font-size: 14px; cursor: pointer; border: 1.5px solid rgba(45,106,79,0.3); background: white; color: var(--text); font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+  .prev-btn:hover { background: var(--green-pale); }
+  .next-btn { padding: 10px 22px; border-radius: 8px; font-size: 14px; cursor: pointer; background: var(--green); color: white; border: none; font-family: 'DM Sans', sans-serif; font-weight: 500; transition: all 0.2s; }
+  .next-btn:hover { background: #1e4d38; }
+
+  /* PILLARS */
   .pillars { background: var(--dark); padding: 7rem 2rem; }
   .pillars-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
   .pillars .section-tag { background: rgba(82,183,136,0.2); color: var(--green-light); }
-  .pillars .section-title { color: white; margin-bottom: 0.8rem; }
-  .pillars .section-body { color: rgba(255,255,255,0.55); margin-bottom: 4rem; }
   .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .pillar {
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid rgba(255,255,255,0.08);
-    border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
-    transition: all 0.3s;
-  }
+  .pillar { background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2.5rem 2rem; text-align: center; transition: all 0.3s; }
   .pillar:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
-  .pillar-icon {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: rgba(82,183,136,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; margin: 0 auto 1.5rem;
-  }
+  .pillar-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(82,183,136,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.5rem; }
   .pillar-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 0.8rem; }
   .pillar-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.5); font-weight: 300; }
 
-  /* WHY WHATSAPP */
+  /* WHY */
   .why { padding: 7rem 2rem; max-width: 860px; margin: 0 auto; text-align: center; }
   .why-points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; text-align: left; }
-  .why-point {
-    background: white; border-radius: 14px; padding: 1.5rem;
-    border: 0.5px solid rgba(45,106,79,0.12);
-    display: flex; gap: 1rem; align-items: flex-start;
-  }
+  .why-point { background: white; border-radius: 14px; padding: 1.5rem; border: 0.5px solid rgba(45,106,79,0.12); display: flex; gap: 1rem; align-items: flex-start; }
   .why-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); margin-top: 6px; flex-shrink: 0; }
   .why-text { font-size: 0.92rem; line-height: 1.6; font-weight: 300; color: var(--text); }
   .why-text strong { font-weight: 500; color: var(--dark); display: block; margin-bottom: 3px; }
@@ -129,18 +166,10 @@
   .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: white; margin-bottom: 1rem; }
   .contact p { color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
   .contact-cards { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-  .contact-card {
-    background: rgba(255,255,255,0.12); border-radius: 12px; padding: 1rem 1.8rem;
-    color: white; text-decoration: none; font-size: 0.95rem;
-    border: 0.5px solid rgba(255,255,255,0.2); transition: all 0.2s;
-    display: flex; align-items: center; gap: 0.6rem;
-  }
+  .contact-card { background: rgba(255,255,255,0.12); border-radius: 12px; padding: 1rem 1.8rem; color: white; text-decoration: none; font-size: 0.95rem; border: 0.5px solid rgba(255,255,255,0.2); transition: all 0.2s; display: flex; align-items: center; gap: 0.6rem; }
   .contact-card:hover { background: rgba(255,255,255,0.2); }
 
-  footer {
-    background: var(--dark); padding: 2rem 4rem;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-  }
+  footer { background: var(--dark); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: white; }
   .footer-logo span { color: var(--earth-light); }
   .footer-links { display: flex; gap: 1.5rem; }
@@ -158,6 +187,8 @@
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
     .stats { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+    .flow-layout { grid-template-columns: 1fr; }
+    .phone-outer { margin-bottom: 2rem; }
     .pillars-grid { grid-template-columns: 1fr; }
     .why-points { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
@@ -169,7 +200,8 @@
 <nav>
   <div class="nav-logo">Gram<span>Sahay</span></div>
   <ul class="nav-links">
-    <li><a href="#what">What We Do</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#how">How It Works</a></li>
     <li><a href="#why">Why WhatsApp</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="privacy.html">Privacy Policy</a></li>
@@ -178,12 +210,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <span class="hero-tag">📱 Civic Tech · Rural India · WhatsApp</span>
-  <h1>Every Village Issue <em>Deserves</em> to be Heard</h1>
+  <span class="hero-tag">📱 WhatsApp · Civic Tech · Rural India</span>
+  <h1>Report Community Issues <em>Instantly</em> via WhatsApp</h1>
   <p class="tagline">GramSahay connects rural citizens with community coordinators through WhatsApp — making civic issue reporting simple, trackable, and transparent for the first time.</p>
   <div class="hero-cta">
-    <a href="#contact" class="btn-primary">Get In Touch</a>
-    <a href="#what" class="btn-secondary">Learn More</a>
+    <a href="#how" class="btn-primary">📋 See How It Works</a>
+    <a href="#contact" class="btn-secondary">Get In Touch</a>
   </div>
 </section>
 
@@ -198,31 +230,61 @@
 <section class="problem" id="problem">
   <span class="section-tag">The Problem</span>
   <h2 class="section-title">Rural communities have no easy way to raise civic issues</h2>
-  <p class="section-body">When a road breaks, water supply fails, or a light goes out — villagers have no structured way to report it, no reference number to track it, and no guarantee it will ever be addressed. GramSahay changes that.</p>
+  <p class="section-sub" style="margin:0 auto;">When a road breaks, water supply fails, or a scheme goes unprocessed — villagers have no structured way to report it, no reference number to track it, and no guarantee it will ever be addressed. GramSahay changes that.</p>
 </section>
 
-<!-- WHAT WE DO -->
-<section class="pillars" id="what">
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="how-inner">
+    <div class="how-header">
+      <span class="section-tag">How It Works</span>
+      <h2 class="section-title">From "Hi" to ticket in minutes</h2>
+      <p class="section-sub" style="margin:0 auto;">A simple WhatsApp conversation that takes a citizen's issue from submission to resolution — with full transparency at every step.</p>
+    </div>
+
+    <div class="steps-nav" id="stepNav"></div>
+    <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:12.5%"></div></div>
+
+    <div class="flow-layout">
+      <div class="phone-outer">
+        <div class="phone-frame">
+          <div class="phone-screen" id="phoneScreen">
+            <div class="wa-head">
+              <div class="wa-av">GS</div>
+              <div>
+                <div class="wa-name">GramSahay</div>
+                <div class="wa-status">Online</div>
+              </div>
+            </div>
+            <div class="wa-body" id="waBubbles"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-info">
+        <div class="step-counter" id="stepCounter">Step 1 of 8</div>
+        <div class="step-title" id="stepTitle"></div>
+        <div class="step-desc" id="stepDesc"></div>
+        <div class="step-note" id="stepNote"></div>
+        <div class="nav-btns">
+          <button class="prev-btn" onclick="changeStep(-1)">← Previous</button>
+          <button class="next-btn" onclick="changeStep(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars" id="pillars">
   <div class="pillars-inner">
     <span class="section-tag">What We Do</span>
-    <h2 class="section-title">A platform built for rural India</h2>
-    <p class="section-body">GramSahay bridges the gap between citizens and community coordinators — using a channel everyone already has.</p>
+    <h2 class="section-title" style="color:white;">A platform built for rural India</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.55); margin:0 auto 0;">GramSahay bridges the gap between citizens and community coordinators — using a channel everyone already has.</p>
     <div class="pillars-grid">
-      <div class="pillar">
-        <div class="pillar-icon">📢</div>
-        <div class="pillar-title">Report</div>
-        <div class="pillar-desc">Citizens raise any civic issue from their village — instantly, in their own language, without downloading anything.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🔔</div>
-        <div class="pillar-title">Notify</div>
-        <div class="pillar-desc">The right community coordinator is alerted immediately and given everything they need to take action.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">✅</div>
-        <div class="pillar-title">Resolve</div>
-        <div class="pillar-desc">Issues are tracked, updated, and closed — with citizens informed at every step until resolution.</div>
-      </div>
+      <div class="pillar"><div class="pillar-icon">📢</div><div class="pillar-title">Report</div><div class="pillar-desc">Citizens raise any civic issue from their village — instantly, in their own language, without downloading anything.</div></div>
+      <div class="pillar"><div class="pillar-icon">🔔</div><div class="pillar-title">Notify</div><div class="pillar-desc">The right community coordinator is alerted immediately and given everything they need to take action.</div></div>
+      <div class="pillar"><div class="pillar-icon">✅</div><div class="pillar-title">Resolve</div><div class="pillar-desc">Issues are tracked, updated, and closed — with citizens informed at every step until resolution.</div></div>
     </div>
   </div>
 </section>
@@ -231,24 +293,12 @@
 <section class="why" id="why">
   <span class="section-tag">Why WhatsApp</span>
   <h2 class="section-title">The app rural India already uses</h2>
-  <p class="section-body" style="margin-bottom:0;">WhatsApp isn't new to villages — it's already in everyone's pocket. GramSahay meets citizens exactly where they are.</p>
+  <p class="section-sub" style="margin:0 auto;">WhatsApp isn't new to villages — it's already in everyone's pocket. GramSahay meets citizens exactly where they are.</p>
   <div class="why-points">
-    <div class="why-point">
-      <div class="why-dot"></div>
-      <div class="why-text"><strong>No download required</strong>Works on any phone with WhatsApp — no installation, no account creation, no learning curve.</div>
-    </div>
-    <div class="why-point">
-      <div class="why-dot"></div>
-      <div class="why-text"><strong>Local language support</strong>Citizens interact in the language they are most comfortable with.</div>
-    </div>
-    <div class="why-point">
-      <div class="why-dot"></div>
-      <div class="why-text"><strong>Works on basic smartphones</strong>No high-end device or fast internet needed — just WhatsApp.</div>
-    </div>
-    <div class="why-point">
-      <div class="why-dot"></div>
-      <div class="why-text"><strong>Familiar and trusted</strong>Citizens already trust WhatsApp — no adoption barrier, immediate engagement.</div>
-    </div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text"><strong>No download required</strong>Works on any phone with WhatsApp — no installation, no account creation, no learning curve.</div></div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text"><strong>Local language support</strong>Citizens interact in the language they are most comfortable with.</div></div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text"><strong>Works on basic smartphones</strong>No high-end device or fast internet needed — just WhatsApp.</div></div>
+    <div class="why-point"><div class="why-dot"></div><div class="why-text"><strong>Familiar and trusted</strong>Citizens already trust WhatsApp — no adoption barrier, immediate engagement.</div></div>
   </div>
 </section>
 
@@ -274,5 +324,197 @@
   <div class="footer-copy">© 2026 GramSahay. All rights reserved.</div>
 </footer>
 
+<script>
+const steps = [
+  {
+    label: "1. Welcome",
+    title: "Welcome message",
+    desc: "When a citizen sends 'Hi' to the GramSahay WhatsApp number, the bot responds instantly with a warm welcome and asks for their full name to begin the process.",
+    note: "No app to download. No registration needed. Just send 'Hi' and you're in.",
+    render: function(body) {
+      addOut(body, "Hi");
+      addIn(body, "🙏 Welcome to GramSahay!\n\nWe help you register civic issues in your area.\n\nTo get started, please enter your full name.");
+    }
+  },
+  {
+    label: "2. Self / Behalf",
+    title: "Self or on behalf?",
+    desc: "The bot asks whether the citizen is raising the issue for themselves or on behalf of someone else — a family member, elderly neighbour, or anyone who cannot use WhatsApp.",
+    note: "One person can raise issues on behalf of the entire village.",
+    render: function(body) {
+      addIn(body, "Are you raising this for yourself or on behalf of someone else?");
+      addButtons(body, ["Self", "On behalf"]);
+    }
+  },
+  {
+    label: "3. Village",
+    title: "Select your village",
+    desc: "The citizen selects their village from a list using WhatsApp's native list picker. This ensures the issue is routed to the correct community coordinator.",
+    note: "Villages are pre-loaded by the administrator for each subdivision.",
+    render: function(body, screen) {
+      addIn(body, "Please select your village:");
+      addListTrigger(body, "Choose Village");
+      addVillagePopup(screen);
+    }
+  },
+  {
+    label: "4. Mauja",
+    title: "Select your mauja",
+    desc: "After selecting the village, the citizen selects their mauja (hamlet). This ensures precise routing to the right coordinator within the village.",
+    note: "Mauja-level precision means the right person gets notified — every time.",
+    render: function(body, screen) {
+      addIn(body, "Please select your Mauja:");
+      addListTrigger(body, "Choose Mauja");
+      addMaujaPopup(screen);
+    }
+  },
+  {
+    label: "5. Issue type",
+    title: "Select the issue type",
+    desc: "The citizen picks the category of their issue from a structured list — new house, road repair, pension, health card, and more. This helps coordinators prioritise requests.",
+    note: "Issue categories are fully configurable by the administrator.",
+    render: function(body, screen) {
+      addIn(body, "Please select your issue type:");
+      addListTrigger(body, "Choose Issue");
+      addIssuePopup(screen);
+    }
+  },
+  {
+    label: "6. Description",
+    title: "Describe the issue",
+    desc: "After selecting the category, the citizen types a short description of their specific problem in their own words. This gives the coordinator full context to act quickly.",
+    note: "The description can be in any language — Odia, Hindi, or English.",
+    render: function(body) {
+      addIn(body, "You selected: New House\n\nPlease briefly describe your issue.");
+      addOut(body, "I have not received the grant under the new house scheme despite applying 6 months ago.");
+    }
+  },
+  {
+    label: "7. Ticket",
+    title: "Ticket confirmation",
+    desc: "Once submitted, a unique ticket number is instantly generated. The citizen receives a full summary including name, village, mauja, issue type, description, and ticket number.",
+    note: "Citizens can quote their ticket number when following up at any time.",
+    render: function(body) {
+      const wrap = document.createElement('div');
+      wrap.className = 'ticket-bbl';
+      wrap.innerHTML = '✅ Your issue has been registered!<div class="ticket-inner"><div class="ticket-num">GRAMSA-20260517-0001</div><br><strong>Raised by:</strong> Mukesh Kumar<br><strong>Mobile:</strong> +91 94370 28615<br><strong>Village:</strong> Nuapatna — Tala Saahi<br><strong>Issue:</strong> New House<br><strong>Details:</strong> I have not received the grant under the new house scheme despite applying 6 months ago.<br><strong>Coordinator:</strong> Haris Kumar<br><strong>Status:</strong> Pending<br><br><a href="https://gramsahay.in" style="color:#1a5c3a; font-weight:600; text-decoration:underline;">🔗 View Ticket Details</a></div><div class="bbl-time">10:02 AM ✓✓</div>';
+      body.appendChild(wrap);
+    }
+  },
+  {
+    label: "8. Coordinator",
+    title: "Coordinator notified",
+    desc: "Simultaneously, the assigned community coordinator receives an instant WhatsApp notification with the full ticket details — and a direct link to view and manage the request in their portal.",
+    note: "Every status change automatically notifies the citizen — no follow-up calls needed.",
+    render: function(body) {
+      const wrap = document.createElement('div');
+      wrap.className = 'coord-bbl';
+      wrap.innerHTML = '🔔 <strong>New Issue Assigned</strong><br><br><strong>Ticket:</strong> GRAMSA-20260517-0001<br><strong>Village:</strong> Nuapatna — Tala Saahi<br><strong>Issue:</strong> New House<br><strong>Citizen:</strong> Mukesh Kumar<br><strong>Mobile:</strong> +91 96682 52070<br><strong>Assigned to:</strong> Haris Kumar<br><br>Please review and update the status.<a href="https://gramsahay.in" class="coord-link">🔗 View Issue Details</a><div class="bbl-time">10:02 AM ✓✓</div>';
+      body.appendChild(wrap);
+    }
+  }
+];
+
+function addOut(body, text) {
+  const d = document.createElement('div');
+  d.className = 'bbl bbl-out';
+  d.innerHTML = text.replace(/\n/g,'<br>') + '<div class="bbl-time">10:01 AM ✓✓</div>';
+  body.appendChild(d);
+}
+
+function addIn(body, text) {
+  const d = document.createElement('div');
+  d.className = 'bbl bbl-in';
+  d.innerHTML = text.replace(/\n/g,'<br>') + '<div class="bbl-time">10:01 AM</div>';
+  body.appendChild(d);
+}
+
+function addButtons(body, options) {
+  const wrap = document.createElement('div');
+  wrap.className = 'bbl-btn-wrap';
+  options.forEach((opt, i) => {
+    const btn = document.createElement('div');
+    btn.className = i === 0 ? 'bbl-btn-body' : 'bbl-btn-option';
+    if (i === 0) { btn.textContent = 'Please select:'; const b = document.createElement('div'); b.className = 'bbl-btn-option'; b.textContent = opt; wrap.appendChild(btn); wrap.appendChild(b); return; }
+    btn.textContent = opt;
+    wrap.appendChild(btn);
+  });
+  body.appendChild(wrap);
+}
+
+function addListTrigger(body, label) {
+  const wrap = document.createElement('div');
+  wrap.className = 'bbl-list-trigger';
+  wrap.innerHTML = '<div class="bbl-list-msg">Please make a selection:</div><div class="bbl-list-btn">☰ ' + label + '</div>';
+  body.appendChild(wrap);
+}
+
+function addVillagePopup(screen) {
+  const popup = document.createElement('div');
+  popup.className = 'list-popup';
+  popup.innerHTML = '<div class="list-popup-title">Select Village <span class="list-popup-close">✕</span></div>' +
+    ['Nuapatna','Kalapathar','Gopalpur','Bhanpur','Tarapur'].map(v =>
+      '<div class="list-item"><span class="list-item-name">' + v + '</span><div class="list-radio"></div></div>'
+    ).join('');
+  screen.appendChild(popup);
+}
+
+function addMaujaPopup(screen) {
+  const popup = document.createElement('div');
+  popup.className = 'list-popup';
+  popup.innerHTML = '<div class="list-popup-title">Select Mauja <span class="list-popup-close">✕</span></div>' +
+    ['Tala Saahi','Upra Sahi','Barapatana','Nua Gaon'].map(v =>
+      '<div class="list-item"><span class="list-item-name">' + v + '</span><div class="list-radio"></div></div>'
+    ).join('');
+  screen.appendChild(popup);
+}
+
+function addIssuePopup(screen) {
+  const popup = document.createElement('div');
+  popup.className = 'list-popup';
+  popup.innerHTML = '<div class="list-popup-title">Select Issue <span class="list-popup-close">✕</span></div>' +
+    ['New House','Road Repair','Pension','Health Card','Others'].map(v =>
+      '<div class="list-item"><span class="list-item-name">' + v + '</span><div class="list-radio"></div></div>'
+    ).join('');
+  screen.appendChild(popup);
+}
+
+let current = 0;
+
+function renderStep(i) {
+  const step = steps[i];
+  document.getElementById('stepCounter').textContent = 'Step ' + (i+1) + ' of ' + steps.length;
+  document.getElementById('stepTitle').textContent = step.title;
+  document.getElementById('stepDesc').textContent = step.desc;
+  document.getElementById('stepNote').textContent = step.note;
+  document.getElementById('progFill').style.width = (((i+1)/steps.length)*100) + '%';
+
+  const body = document.getElementById('waBubbles');
+  const screen = document.getElementById('phoneScreen');
+  body.innerHTML = '';
+  const existingPopup = screen.querySelector('.list-popup');
+  if (existingPopup) existingPopup.remove();
+
+  step.render(body, screen);
+
+  document.querySelectorAll('.step-btn').forEach((b,j) => b.classList.toggle('active', j===i));
+}
+
+function changeStep(dir) {
+  current = Math.max(0, Math.min(steps.length-1, current+dir));
+  renderStep(current);
+}
+
+const nav = document.getElementById('stepNav');
+steps.forEach((s,i) => {
+  const btn = document.createElement('button');
+  btn.className = 'step-btn' + (i===0?' active':'');
+  btn.textContent = s.label;
+  btn.onclick = () => { current = i; renderStep(i); };
+  nav.appendChild(btn);
+});
+
+renderStep(0);
+</script>
 </body>
 </html>
