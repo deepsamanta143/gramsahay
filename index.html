@@ -6,7 +6,6 @@
 <title>GramSahay — Civic Issue Reporting via WhatsApp</title>
 <meta name="description" content="GramSahay is a WhatsApp-based platform that connects rural citizens with community coordinators to resolve civic issues — fast, trackable, and transparent.">
 <meta name="facebook-domain-verification" content="7ylxoboc2sbi5citofthrimgl2udz1" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair...">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -26,9 +25,15 @@
   }
   .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--green); }
   .nav-logo span { color: var(--earth); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--green); }
+  .nav-ticket-btn {
+    background: var(--green); color: white !important; padding: 0.5rem 1.2rem;
+    border-radius: 8px; font-size: 0.85rem !important; font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-ticket-btn:hover { background: #1e4d38 !important; }
 
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
@@ -58,7 +63,7 @@
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
   .btn-primary { background: var(--green); color: white; padding: 0.95rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; }
   .btn-primary:hover { background: #1e4d38; transform: translateY(-2px); }
-  .btn-secondary { background: transparent; color: var(--green); padding: 0.95rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem; border: 1.5px solid var(--green); transition: all 0.2s; }
+  .btn-secondary { background: transparent; color: var(--green); padding: 0.95rem 2.2rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 1rem; border: 1.5px solid var(--green); transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
   .btn-secondary:hover { background: var(--green-pale); }
 
   .stats { background: var(--green); padding: 2.5rem 4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
@@ -76,20 +81,16 @@
   .how-inner { max-width: 1100px; margin: 0 auto; }
   .how-header { text-align: center; margin-bottom: 4rem; }
 
-  /* STEPS NAV */
   .steps-nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
   .step-btn { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid rgba(45,106,79,0.3); background: white; color: var(--text); transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
   .step-btn.active { background: var(--green); color: white; border-color: var(--green); }
   .step-btn:hover:not(.active) { background: var(--green-pale); }
 
-  /* PROGRESS */
   .prog-bar { height: 4px; background: rgba(45,106,79,0.1); border-radius: 2px; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
   .prog-fill { height: 4px; background: var(--green); border-radius: 2px; transition: width 0.4s ease; }
 
-  /* FLOW LAYOUT */
   .flow-layout { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: center; }
 
-  /* PHONE */
   .phone-outer { display: flex; justify-content: center; }
   .phone-frame { width: 280px; background: #1a1a1a; border-radius: 40px; padding: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
   .phone-screen { background: #ece5dd; border-radius: 30px; overflow: hidden; min-height: 480px; position: relative; }
@@ -99,18 +100,15 @@
   .wa-status { color: rgba(255,255,255,0.7); font-size: 11px; }
   .wa-body { padding: 12px 10px; display: flex; flex-direction: column; gap: 8px; }
 
-  /* BUBBLES */
   .bbl { max-width: 88%; padding: 7px 10px; border-radius: 8px; font-size: 12px; line-height: 1.45; }
   .bbl-in { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; color: #303030; }
   .bbl-out { background: #dcf8c6; border-radius: 8px 8px 0 8px; align-self: flex-end; color: #303030; }
   .bbl-time { font-size: 10px; color: #999; text-align: right; margin-top: 3px; }
 
-  /* BUTTON BUBBLES */
   .bbl-btn-wrap { background: white; border-radius: 0 8px 8px 8px; overflow: hidden; align-self: flex-start; max-width: 88%; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
   .bbl-btn-body { padding: 7px 10px; font-size: 12px; color: #303030; border-bottom: 1px solid #f0f0f0; }
   .bbl-btn-option { padding: 8px 10px; text-align: center; font-size: 12px; color: #128C7E; font-weight: 500; border-top: 1px solid #f0f0f0; }
 
-  /* LIST POPUP */
   .list-popup { position: absolute; bottom: 0; left: 0; right: 0; background: white; border-radius: 16px 16px 0 0; padding: 16px; z-index: 10; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
   .list-popup-title { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
   .list-popup-close { font-size: 16px; color: #666; cursor: pointer; }
@@ -118,21 +116,17 @@
   .list-item-name { font-size: 13px; color: #1a1a1a; }
   .list-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #ccc; flex-shrink: 0; }
 
-  /* LIST TRIGGER */
   .bbl-list-trigger { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; overflow: hidden; max-width: 88%; }
   .bbl-list-msg { padding: 7px 10px; font-size: 12px; color: #303030; border-bottom: 1px solid #f0f0f0; }
   .bbl-list-btn { padding: 8px 10px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: #128C7E; font-weight: 500; cursor: pointer; }
 
-  /* TICKET BUBBLE */
   .ticket-bbl { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; padding: 8px 10px; max-width: 92%; font-size: 11px; line-height: 1.5; color: #303030; }
   .ticket-inner { background: #f0f7f0; border-radius: 6px; padding: 8px; margin-top: 6px; font-size: 11px; color: #1a5c3a; }
   .ticket-num { font-weight: 700; font-size: 12px; color: #1a5c3a; }
 
-  /* COORDINATOR BUBBLE */
   .coord-bbl { background: white; border-radius: 0 8px 8px 8px; align-self: flex-start; padding: 8px 10px; max-width: 92%; font-size: 11px; line-height: 1.6; color: #303030; }
   .coord-link { display: inline-block; margin-top: 8px; background: var(--green); color: white; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 500; text-decoration: none; width: 100%; text-align: center; }
 
-  /* STEP INFO */
   .step-info { }
   .step-counter { font-size: 12px; font-weight: 500; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
   .step-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
@@ -163,13 +157,102 @@
   .why-text { font-size: 0.92rem; line-height: 1.6; font-weight: 300; color: var(--text); }
   .why-text strong { font-weight: 500; color: var(--dark); display: block; margin-bottom: 3px; }
 
-  /* CONTACT */
-  .contact { background: var(--green); padding: 7rem 2rem; text-align: center; }
-  .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: white; margin-bottom: 1rem; }
-  .contact p { color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-  .contact-cards { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-  .contact-card { background: rgba(255,255,255,0.12); border-radius: 12px; padding: 1rem 1.8rem; color: white; text-decoration: none; font-size: 0.95rem; border: 0.5px solid rgba(255,255,255,0.2); transition: all 0.2s; display: flex; align-items: center; gap: 0.6rem; }
-  .contact-card:hover { background: rgba(255,255,255,0.2); }
+  /* ── LAUNCH SECTION ── */
+  .launch-section {
+    background: var(--green);
+    padding: 7rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .launch-section::before {
+    content: '';
+    position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 65%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .launch-inner { max-width: 860px; margin: 0 auto; position: relative; }
+  .launch-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px; padding: 6px 18px;
+    font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem; letter-spacing: 0.3px;
+  }
+  .launch-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--earth-light); }
+  .launch-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900;
+    color: white; line-height: 1.15; margin-bottom: 1rem;
+  }
+  .launch-section h2 em { font-style: normal; color: var(--earth-light); }
+  .launch-section p {
+    color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.75;
+    font-weight: 300; margin-bottom: 3rem; max-width: 520px; margin-left: auto; margin-right: auto;
+  }
+
+  /* COUNTDOWN */
+  .countdown-row {
+    display: flex; gap: 12px; justify-content: center; align-items: center;
+    margin-bottom: 3rem; flex-wrap: wrap;
+  }
+  .cd-block {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px; padding: 20px 24px; min-width: 90px; text-align: center;
+  }
+  .cd-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: white; line-height: 1;
+    display: block;
+  }
+  .cd-lbl {
+    font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase;
+    letter-spacing: 1.5px; margin-top: 6px; display: block; font-weight: 500;
+  }
+  .cd-sep { font-size: 2.5rem; color: rgba(255,255,255,0.25); font-weight: 300; }
+
+  /* LAUNCH DATE PILL */
+  .launch-date-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(246,173,85,0.15); border: 1px solid rgba(246,173,85,0.4);
+    border-radius: 100px; padding: 8px 20px;
+    font-size: 0.9rem; font-weight: 500; color: var(--earth-light);
+    margin-bottom: 2.5rem;
+  }
+
+  /* TICKET CTA CARD */
+  .ticket-cta-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px; padding: 2.5rem 2rem;
+    max-width: 600px; margin: 0 auto;
+  }
+  .ticket-cta-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 0.75rem;
+  }
+  .ticket-cta-card p {
+    color: rgba(255,255,255,0.55); font-size: 0.9rem; margin-bottom: 1.5rem;
+    font-weight: 300; line-height: 1.6;
+  }
+  .ticket-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-ticket {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white; color: var(--green);
+    padding: 0.9rem 2rem; border-radius: 8px;
+    font-weight: 500; font-size: 0.95rem; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-ticket:hover { background: var(--green-pale); transform: translateY(-2px); }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #25D366; color: white;
+    padding: 0.9rem 2rem; border-radius: 8px;
+    font-weight: 500; font-size: 0.95rem; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-wa:hover { background: #1ebe5a; transform: translateY(-2px); }
 
   footer { background: var(--dark); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: white; }
@@ -194,6 +277,9 @@
     .pillars-grid { grid-template-columns: 1fr; }
     .why-points { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    .countdown-row { gap: 8px; }
+    .cd-block { padding: 16px 18px; min-width: 76px; }
+    .cd-num { font-size: 2.2rem; }
   }
 </style>
 </head>
@@ -205,8 +291,9 @@
     <li><a href="#problem">Problem</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#why">Why WhatsApp</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#launch">Launch</a></li>
     <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="tickets.html" class="nav-ticket-btn">🎫 Track Ticket</a></li>
   </ul>
 </nav>
 
@@ -217,7 +304,10 @@
   <p class="tagline">GramSahay connects rural citizens with community coordinators through WhatsApp — making civic issue reporting simple, trackable, and transparent for the first time.</p>
   <div class="hero-cta">
     <a href="#how" class="btn-primary">📋 See How It Works</a>
-    <a href="#contact" class="btn-secondary">Get In Touch</a>
+    <a href="tickets.html" class="btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      Track My Ticket
+    </a>
   </div>
 </section>
 
@@ -304,15 +394,29 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Interested in GramSahay?</h2>
-  <p>Whether you want to deploy GramSahay in your region, explore a partnership, or simply learn more — we'd love to hear from you.</p>
-  <a href="mailto:whatsappchat190@gmail.com" class="btn-primary" style="display:inline-flex; margin-top:1rem;">✉️ &nbsp; Get In Touch</a>
-  <div class="contact-cards">
-    <a href="https://gramsahay.in" class="contact-card">🌐 gramsahay.in</a>
-    <a href="privacy.html" class="contact-card">🔒 Privacy Policy</a>
-    <a href="mailto:whatsappchat190@gmail.com" class="contact-card">📧 whatsappchat190@gmail.com</a>
+<!-- LAUNCH SECTION (replaces Contact) -->
+<section class="launch-section" id="launch">
+  <div class="launch-inner">
+    <div class="launch-badge">
+      <div class="launch-badge-dot"></div>
+      GramSahay is going live
+    </div>
+    <h2>We're <em>Launching</em> on 14th June 2025</h2>
+    <p>The ticket portal and full coordinator dashboard will go live on launch day. Start reporting your civic issues on WhatsApp today — your ticket will be tracked from day one.</p>
+
+    <div class="launch-date-pill">📅 &nbsp; Official Launch — 14 June 2025</div>
+
+    <div class="countdown-row" id="countdown">
+      <div class="cd-block"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Hours</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-mins">--</span><span class="cd-lbl">Mins</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-secs">--</span><span class="cd-lbl">Secs</span></div>
+    </div>
+
+
   </div>
 </section>
 
@@ -320,202 +424,147 @@
   <div class="footer-logo">Gram<span>Sahay</span></div>
   <div class="footer-links">
     <a href="index.html">Home</a>
+    <a href="tickets.html">Track Ticket</a>
     <a href="privacy.html">Privacy Policy</a>
-    <a href="#contact">Contact</a>
+    <a href="mailto:whatsappchat190@gmail.com">Contact</a>
   </div>
   <div class="footer-copy">© 2026 GramSahay. All rights reserved.</div>
 </footer>
 
 <script>
-const steps = [
+/* ── COUNTDOWN ── */
+function updateCountdown() {
+  var launch = new Date("2025-06-14T00:00:00");
+  var now = new Date();
+  var diff = launch - now;
+  if (diff <= 0) {
+    ["days","hours","mins","secs"].forEach(function(id){ document.getElementById("cd-"+id).textContent = "00"; });
+    return;
+  }
+  var d = Math.floor(diff / 864e5);
+  var h = Math.floor((diff % 864e5) / 36e5);
+  var m = Math.floor((diff % 36e5) / 6e4);
+  var s = Math.floor((diff % 6e4) / 1e3);
+  document.getElementById("cd-days").textContent = String(d).padStart(2,"0");
+  document.getElementById("cd-hours").textContent = String(h).padStart(2,"0");
+  document.getElementById("cd-mins").textContent = String(m).padStart(2,"0");
+  document.getElementById("cd-secs").textContent = String(s).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ── STEPS ── */
+var steps = [
   {
     label: "1. Welcome",
     title: "Welcome message",
     desc: "When a citizen sends 'Hi' to the GramSahay WhatsApp number, the bot responds instantly with a warm welcome and asks for their full name to begin the process.",
     note: "No app to download. No registration needed. Just send 'Hi' and you're in.",
-    render: function(body) {
-      addOut(body, "Hi");
-      addIn(body, "🙏 Welcome to GramSahay!\n\nWe help you register civic issues in your area.\n\nTo get started, please enter your full name.");
-    }
+    render: function(body) { addOut(body,"Hi"); addIn(body,"🙏 Welcome to GramSahay!\n\nWe help you register civic issues in your area.\n\nTo get started, please enter your full name."); }
   },
   {
     label: "2. Self / Behalf",
     title: "Self or on behalf?",
     desc: "The bot asks whether the citizen is raising the issue for themselves or on behalf of someone else — a family member, elderly neighbour, or anyone who cannot use WhatsApp.",
     note: "One person can raise issues on behalf of the entire village.",
-    render: function(body) {
-      addIn(body, "Are you raising this for yourself or on behalf of someone else?");
-      addButtons(body, ["Self", "On behalf"]);
-    }
+    render: function(body) { addIn(body,"Are you raising this for yourself or on behalf of someone else?"); addButtons(body,["Self","On behalf"]); }
   },
   {
     label: "3. Village",
     title: "Select your village",
     desc: "The citizen selects their village from a list using WhatsApp's native list picker. This ensures the issue is routed to the correct community coordinator.",
     note: "Villages are pre-loaded by the administrator for each subdivision.",
-    render: function(body, screen) {
-      addIn(body, "Please select your village:");
-      addListTrigger(body, "Choose Village");
-      addVillagePopup(screen);
-    }
+    render: function(body,screen) { addIn(body,"Please select your village:"); addListTrigger(body,"Choose Village"); addVillagePopup(screen); }
   },
   {
     label: "4. Mauja",
     title: "Select your mauja",
     desc: "After selecting the village, the citizen selects their mauja (hamlet). This ensures precise routing to the right coordinator within the village.",
     note: "Mauja-level precision means the right person gets notified — every time.",
-    render: function(body, screen) {
-      addIn(body, "Please select your Mauja:");
-      addListTrigger(body, "Choose Mauja");
-      addMaujaPopup(screen);
-    }
+    render: function(body,screen) { addIn(body,"Please select your Mauja:"); addListTrigger(body,"Choose Mauja"); addMaujaPopup(screen); }
   },
   {
     label: "5. Issue type",
     title: "Select the issue type",
-    desc: "The citizen picks the category of their issue from a structured list — new house, road repair, pension, health card, and more. This helps coordinators prioritise requests.",
+    desc: "The citizen picks the category of their issue from a structured list — new house, road repair, pension, health card, and more.",
     note: "Issue categories are fully configurable by the administrator.",
-    render: function(body, screen) {
-      addIn(body, "Please select your issue type:");
-      addListTrigger(body, "Choose Issue");
-      addIssuePopup(screen);
-    }
+    render: function(body,screen) { addIn(body,"Please select your issue type:"); addListTrigger(body,"Choose Issue"); addIssuePopup(screen); }
   },
   {
     label: "6. Description",
     title: "Describe the issue",
     desc: "After selecting the category, the citizen types a short description of their specific problem in their own words. This gives the coordinator full context to act quickly.",
     note: "The description can be in any language — Odia, Hindi, or English.",
-    render: function(body) {
-      addIn(body, "You selected: New House\n\nPlease briefly describe your issue.");
-      addOut(body, "I have not received the grant under the new house scheme despite applying 6 months ago.");
-    }
+    render: function(body) { addIn(body,"You selected: New House\n\nPlease briefly describe your issue."); addOut(body,"I have not received the grant under the new house scheme despite applying 6 months ago."); }
   },
   {
     label: "7. Ticket",
     title: "Ticket confirmation",
-    desc: "Once submitted, a unique ticket number is instantly generated. The citizen receives a full summary including name, village, mauja, issue type, description, and ticket number.",
-    note: "Citizens can quote their ticket number when following up at any time.",
+    desc: "Once submitted, a unique ticket number is instantly generated. The citizen receives a full summary and a direct link to track their ticket online.",
+    note: "Citizens can track their ticket at any time by visiting the portal link in this message.",
     render: function(body) {
-      const wrap = document.createElement('div');
+      var wrap = document.createElement('div');
       wrap.className = 'ticket-bbl';
-      wrap.innerHTML = '✅ Your issue has been registered!<div class="ticket-inner"><div class="ticket-num">GRAMSA-20260517-0001</div><br><strong>Raised by:</strong> Mukesh Kumar<br><strong>Mobile:</strong> +91 94370 28615<br><strong>Village:</strong> Nuapatna — Tala Saahi<br><strong>Issue:</strong> New House<br><strong>Details:</strong> I have not received the grant under the new house scheme despite applying 6 months ago.<br><strong>Coordinator:</strong> Haris Kumar<br><strong>Status:</strong> Pending<br><br><a href="https://gramsahay.in" style="color:#1a5c3a; font-weight:600; text-decoration:underline;">🔗 View Ticket Details</a></div><div class="bbl-time">10:02 AM ✓✓</div>';
+      wrap.innerHTML = '✅ Your issue has been registered!<div class="ticket-inner"><div class="ticket-num">GRAMSA-20260517-0001</div><br><strong>Raised by:</strong> Mukesh Kumar<br><strong>Village:</strong> Nuapatna — Tala Saahi<br><strong>Issue:</strong> New House<br><strong>Status:</strong> Pending<br><br><a href="tickets.html" style="display:inline-block;margin-top:6px;background:#2d6a4f;color:white;padding:5px 10px;border-radius:5px;font-size:11px;font-weight:600;text-decoration:none;">🎫 Track My Ticket →</a></div><div class="bbl-time">10:02 AM ✓✓</div>';
       body.appendChild(wrap);
     }
   },
   {
     label: "8. Coordinator",
     title: "Coordinator notified",
-    desc: "Simultaneously, the assigned community coordinator receives an instant WhatsApp notification with the full ticket details — and a direct link to view and manage the request in their portal.",
+    desc: "Simultaneously, the assigned community coordinator receives an instant WhatsApp notification with the full ticket details — and a direct link to view and manage the request.",
     note: "Every status change automatically notifies the citizen — no follow-up calls needed.",
     render: function(body) {
-      const wrap = document.createElement('div');
+      var wrap = document.createElement('div');
       wrap.className = 'coord-bbl';
-      wrap.innerHTML = '🔔 <strong>New Issue Assigned</strong><br><br><strong>Ticket:</strong> GRAMSA-20260517-0001<br><strong>Village:</strong> Nuapatna — Tala Saahi<br><strong>Issue:</strong> New House<br><strong>Citizen:</strong> Mukesh Kumar<br><strong>Mobile:</strong> +91 96682 52070<br><strong>Assigned to:</strong> Haris Kumar<br><br>Please review and update the status.<a href="https://gramsahay.in" class="coord-link">🔗 View Issue Details</a><div class="bbl-time">10:02 AM ✓✓</div>';
+      wrap.innerHTML = '🔔 <strong>New Issue Assigned</strong><br><br><strong>Ticket:</strong> GRAMSA-20260517-0001<br><strong>Village:</strong> Nuapatna — Tala Saahi<br><strong>Issue:</strong> New House<br><strong>Citizen:</strong> Mukesh Kumar<br><br>Please review and update the status.<a href="tickets.html" class="coord-link">🎫 View Issue Details</a><div class="bbl-time">10:02 AM ✓✓</div>';
       body.appendChild(wrap);
     }
   }
 ];
 
-function addOut(body, text) {
-  const d = document.createElement('div');
-  d.className = 'bbl bbl-out';
-  d.innerHTML = text.replace(/\n/g,'<br>') + '<div class="bbl-time">10:01 AM ✓✓</div>';
-  body.appendChild(d);
-}
+function addOut(body,text){ var d=document.createElement('div'); d.className='bbl bbl-out'; d.innerHTML=text.replace(/\n/g,'<br>')+'<div class="bbl-time">10:01 AM ✓✓</div>'; body.appendChild(d); }
+function addIn(body,text){ var d=document.createElement('div'); d.className='bbl bbl-in'; d.innerHTML=text.replace(/\n/g,'<br>')+'<div class="bbl-time">10:01 AM</div>'; body.appendChild(d); }
 
-function addIn(body, text) {
-  const d = document.createElement('div');
-  d.className = 'bbl bbl-in';
-  d.innerHTML = text.replace(/\n/g,'<br>') + '<div class="bbl-time">10:01 AM</div>';
-  body.appendChild(d);
-}
-
-function addButtons(body, options) {
-  const wrap = document.createElement('div');
-  wrap.className = 'bbl-btn-wrap';
-  options.forEach((opt, i) => {
-    const btn = document.createElement('div');
-    btn.className = i === 0 ? 'bbl-btn-body' : 'bbl-btn-option';
-    if (i === 0) { btn.textContent = 'Please select:'; const b = document.createElement('div'); b.className = 'bbl-btn-option'; b.textContent = opt; wrap.appendChild(btn); wrap.appendChild(b); return; }
-    btn.textContent = opt;
-    wrap.appendChild(btn);
-  });
+function addButtons(body,options){
+  var wrap=document.createElement('div'); wrap.className='bbl-btn-wrap';
+  var header=document.createElement('div'); header.className='bbl-btn-body'; header.textContent='Please select:'; wrap.appendChild(header);
+  options.forEach(function(opt){ var btn=document.createElement('div'); btn.className='bbl-btn-option'; btn.textContent=opt; wrap.appendChild(btn); });
   body.appendChild(wrap);
 }
 
-function addListTrigger(body, label) {
-  const wrap = document.createElement('div');
-  wrap.className = 'bbl-list-trigger';
-  wrap.innerHTML = '<div class="bbl-list-msg">Please make a selection:</div><div class="bbl-list-btn">☰ ' + label + '</div>';
-  body.appendChild(wrap);
+function addListTrigger(body,label){ var wrap=document.createElement('div'); wrap.className='bbl-list-trigger'; wrap.innerHTML='<div class="bbl-list-msg">Please make a selection:</div><div class="bbl-list-btn">☰ '+label+'</div>'; body.appendChild(wrap); }
+
+function addVillagePopup(screen){ var p=document.createElement('div'); p.className='list-popup'; p.innerHTML='<div class="list-popup-title">Select Village <span class="list-popup-close">✕</span></div>'+['Nuapatna','Kalapathar','Gopalpur','Bhanpur','Tarapur'].map(function(v){ return '<div class="list-item"><span class="list-item-name">'+v+'</span><div class="list-radio"></div></div>'; }).join(''); screen.appendChild(p); }
+function addMaujaPopup(screen){ var p=document.createElement('div'); p.className='list-popup'; p.innerHTML='<div class="list-popup-title">Select Mauja <span class="list-popup-close">✕</span></div>'+['Tala Saahi','Upra Sahi','Barapatana','Nua Gaon'].map(function(v){ return '<div class="list-item"><span class="list-item-name">'+v+'</span><div class="list-radio"></div></div>'; }).join(''); screen.appendChild(p); }
+function addIssuePopup(screen){ var p=document.createElement('div'); p.className='list-popup'; p.innerHTML='<div class="list-popup-title">Select Issue <span class="list-popup-close">✕</span></div>'+['New House','Road Repair','Pension','Health Card','Others'].map(function(v){ return '<div class="list-item"><span class="list-item-name">'+v+'</span><div class="list-radio"></div></div>'; }).join(''); screen.appendChild(p); }
+
+var current = 0;
+function renderStep(i){
+  var step=steps[i];
+  document.getElementById('stepCounter').textContent='Step '+(i+1)+' of '+steps.length;
+  document.getElementById('stepTitle').textContent=step.title;
+  document.getElementById('stepDesc').textContent=step.desc;
+  document.getElementById('stepNote').textContent=step.note;
+  document.getElementById('progFill').style.width=(((i+1)/steps.length)*100)+'%';
+  var body=document.getElementById('waBubbles');
+  var screen=document.getElementById('phoneScreen');
+  body.innerHTML='';
+  var ep=screen.querySelector('.list-popup');
+  if(ep) ep.remove();
+  step.render(body,screen);
+  document.querySelectorAll('.step-btn').forEach(function(b,j){ b.classList.toggle('active',j===i); });
 }
+function changeStep(dir){ current=Math.max(0,Math.min(steps.length-1,current+dir)); renderStep(current); }
 
-function addVillagePopup(screen) {
-  const popup = document.createElement('div');
-  popup.className = 'list-popup';
-  popup.innerHTML = '<div class="list-popup-title">Select Village <span class="list-popup-close">✕</span></div>' +
-    ['Nuapatna','Kalapathar','Gopalpur','Bhanpur','Tarapur'].map(v =>
-      '<div class="list-item"><span class="list-item-name">' + v + '</span><div class="list-radio"></div></div>'
-    ).join('');
-  screen.appendChild(popup);
-}
-
-function addMaujaPopup(screen) {
-  const popup = document.createElement('div');
-  popup.className = 'list-popup';
-  popup.innerHTML = '<div class="list-popup-title">Select Mauja <span class="list-popup-close">✕</span></div>' +
-    ['Tala Saahi','Upra Sahi','Barapatana','Nua Gaon'].map(v =>
-      '<div class="list-item"><span class="list-item-name">' + v + '</span><div class="list-radio"></div></div>'
-    ).join('');
-  screen.appendChild(popup);
-}
-
-function addIssuePopup(screen) {
-  const popup = document.createElement('div');
-  popup.className = 'list-popup';
-  popup.innerHTML = '<div class="list-popup-title">Select Issue <span class="list-popup-close">✕</span></div>' +
-    ['New House','Road Repair','Pension','Health Card','Others'].map(v =>
-      '<div class="list-item"><span class="list-item-name">' + v + '</span><div class="list-radio"></div></div>'
-    ).join('');
-  screen.appendChild(popup);
-}
-
-let current = 0;
-
-function renderStep(i) {
-  const step = steps[i];
-  document.getElementById('stepCounter').textContent = 'Step ' + (i+1) + ' of ' + steps.length;
-  document.getElementById('stepTitle').textContent = step.title;
-  document.getElementById('stepDesc').textContent = step.desc;
-  document.getElementById('stepNote').textContent = step.note;
-  document.getElementById('progFill').style.width = (((i+1)/steps.length)*100) + '%';
-
-  const body = document.getElementById('waBubbles');
-  const screen = document.getElementById('phoneScreen');
-  body.innerHTML = '';
-  const existingPopup = screen.querySelector('.list-popup');
-  if (existingPopup) existingPopup.remove();
-
-  step.render(body, screen);
-
-  document.querySelectorAll('.step-btn').forEach((b,j) => b.classList.toggle('active', j===i));
-}
-
-function changeStep(dir) {
-  current = Math.max(0, Math.min(steps.length-1, current+dir));
-  renderStep(current);
-}
-
-const nav = document.getElementById('stepNav');
-steps.forEach((s,i) => {
-  const btn = document.createElement('button');
-  btn.className = 'step-btn' + (i===0?' active':'');
-  btn.textContent = s.label;
-  btn.onclick = () => { current = i; renderStep(i); };
+var nav=document.getElementById('stepNav');
+steps.forEach(function(s,i){
+  var btn=document.createElement('button');
+  btn.className='step-btn'+(i===0?' active':'');
+  btn.textContent=s.label;
+  btn.onclick=function(){ current=i; renderStep(i); };
   nav.appendChild(btn);
 });
-
 renderStep(0);
 </script>
 </body>
