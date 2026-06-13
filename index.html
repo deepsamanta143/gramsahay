@@ -74,6 +74,16 @@
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
   .section-sub { color: var(--text); opacity: 0.7; font-size: 1rem; line-height: 1.7; max-width: 560px; font-weight: 300; }
 
+  /* HIGHLIGHTS */
+  .highlights { padding: 7rem 2rem; background: white; }
+  .highlights-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .highlights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .highlight-card { background: var(--cream); border: 0.5px solid rgba(45,106,79,0.12); border-radius: 16px; padding: 2rem 1.5rem; text-align: left; transition: all 0.3s; }
+  .highlight-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(45,106,79,0.1); border-color: rgba(45,106,79,0.25); }
+  .highlight-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .highlight-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.6rem; }
+  .highlight-desc { font-size: 0.88rem; line-height: 1.75; color: var(--text); font-weight: 300; opacity: 0.85; }
+
   .problem { padding: 7rem 2rem; max-width: 860px; margin: 0 auto; text-align: center; }
 
   /* HOW IT WORKS */
@@ -255,6 +265,7 @@
     .flow-layout { grid-template-columns: 1fr; }
     .phone-outer { margin-bottom: 2rem; }
     .pillars-grid { grid-template-columns: 1fr; }
+    .highlights-grid { grid-template-columns: 1fr; }
     .why-points { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
     .countdown-row { gap: 8px; }
@@ -282,17 +293,57 @@
   <h1>Your Village. Your Voice. <em>Resolved.</em></h1>
   <p class="tagline">Just send <strong>"Hi"</strong> on WhatsApp — GramSahay registers your civic issue, assigns it to the right person, and keeps you updated until it's fixed. No app. No forms. No running around.</p>
   <div class="hero-cta">
-    <a href="https://banki.gramsahay.in" target="_blank" class="btn-primary">📲 Report an Issue on WhatsApp</a>
-    <a href="#how" class="btn-secondary">📋 See How It Works</a>
+    <a href="#how" class="btn-primary">📋 See How It Works</a>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats">
-  <div><div class="stat-num">10</div><div class="stat-label">Villages covered in Baanki Block</div></div>
-  <div><div class="stat-num">9</div><div class="stat-label">Issue categories supported</div></div>
-  <div><div class="stat-num">Zero</div><div class="stat-label">Apps needed — just WhatsApp</div></div>
+  <div><div class="stat-num">70%+</div><div class="stat-label">WhatsApp penetration in Rural India</div></div>
+  <div><div class="stat-num">Zero</div><div class="stat-label">Apps to install for citizens</div></div>
+  <div><div class="stat-num">100%</div><div class="stat-label">Audit trail on every request</div></div>
 </div>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights">
+  <div class="highlights-inner">
+    <span class="section-tag">What GramSahay Does</span>
+    <h2 class="section-title">One platform. Every civic problem.</h2>
+    <p class="section-sub" style="margin:0 auto 3rem;">From a broken road to a pending government scheme — GramSahay gives every rural citizen a voice, a reference number, and a resolution.</p>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon">📝</div>
+        <div class="highlight-title">Register Any Civic Issue</div>
+        <div class="highlight-desc">Roads, water supply, pensions, health cards, housing schemes — citizens report any problem in minutes via WhatsApp, in their own language.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🎫</div>
+        <div class="highlight-title">Instant Ticket Number</div>
+        <div class="highlight-desc">Every issue gets a unique ticket ID the moment it's submitted. No more verbal complaints that disappear — every request is recorded and traceable.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🔔</div>
+        <div class="highlight-title">Right Person Notified</div>
+        <div class="highlight-desc">The assigned community coordinator gets an instant WhatsApp alert with full issue details — no delays, no middlemen, no lost paperwork.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">📍</div>
+        <div class="highlight-title">Village & Mauja Precision</div>
+        <div class="highlight-desc">Issues are routed down to the exact mauja (hamlet) level — ensuring the right coordinator handles the right locality every single time.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🔄</div>
+        <div class="highlight-title">Live Status Updates</div>
+        <div class="highlight-desc">Citizens receive automatic WhatsApp updates as their issue moves from Pending → In Progress → Resolved. No follow-up calls needed.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">👥</div>
+        <div class="highlight-title">Report on Behalf</div>
+        <div class="highlight-desc">One person can report for an elderly neighbour, a family member, or anyone in the village — bridging the digital gap for those who need it most.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- PROBLEM -->
 <section class="problem" id="problem">
