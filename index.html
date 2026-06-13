@@ -192,33 +192,13 @@
     font-weight: 300; margin-bottom: 3rem; max-width: 520px; margin-left: auto; margin-right: auto;
   }
 
-  /* COUNTDOWN */
-  .countdown-row {
-    display: flex; gap: 12px; justify-content: center; align-items: center;
-    margin-bottom: 3rem; flex-wrap: wrap;
-  }
-  .cd-block {
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px; padding: 20px 24px; min-width: 90px; text-align: center;
-  }
-  .cd-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 900; color: white; line-height: 1;
-    display: block;
-  }
-  .cd-lbl {
-    font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase;
-    letter-spacing: 1.5px; margin-top: 6px; display: block; font-weight: 500;
-  }
-  .cd-sep { font-size: 2.5rem; color: rgba(255,255,255,0.25); font-weight: 300; }
-
-  /* LAUNCH DATE PILL */
-  .launch-date-pill {
+  /* COMING SOON BADGE */
+  .coming-soon-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(246,173,85,0.15); border: 1px solid rgba(246,173,85,0.4);
-    border-radius: 100px; padding: 8px 20px;
-    font-size: 0.9rem; font-weight: 500; color: var(--earth-light);
-    margin-bottom: 2.5rem;
+    background: rgba(246,173,85,0.2); border: 1px solid rgba(246,173,85,0.5);
+    border-radius: 100px; padding: 14px 36px;
+    font-size: 1.3rem; font-weight: 600; color: var(--earth-light);
+    margin-bottom: 2.5rem; letter-spacing: 0.5px;
   }
 
   /* TICKET CTA CARD */
@@ -293,29 +273,25 @@
     <li><a href="#why">Why WhatsApp</a></li>
     <li><a href="#launch">Launch</a></li>
     <li><a href="privacy.html">Privacy Policy</a></li>
-    <li><a href="tickets.html" class="nav-ticket-btn">🎫 Track Ticket</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <span class="hero-tag">📱 WhatsApp · Civic Tech · Rural India</span>
-  <h1>Report Community Issues <em>Instantly</em> via WhatsApp</h1>
-  <p class="tagline">GramSahay connects rural citizens with community coordinators through WhatsApp — making civic issue reporting simple, trackable, and transparent for the first time.</p>
+  <h1>Your Village. Your Voice. <em>Resolved.</em></h1>
+  <p class="tagline">Just send <strong>"Hi"</strong> on WhatsApp — GramSahay registers your civic issue, assigns it to the right person, and keeps you updated until it's fixed. No app. No forms. No running around.</p>
   <div class="hero-cta">
-    <a href="#how" class="btn-primary">📋 See How It Works</a>
-    <a href="tickets.html" class="btn-secondary">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-      Track My Ticket
-    </a>
+    <a href="https://banki.gramsahay.in" target="_blank" class="btn-primary">📲 Report an Issue on WhatsApp</a>
+    <a href="#how" class="btn-secondary">📋 See How It Works</a>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats">
-  <div><div class="stat-num">70%+</div><div class="stat-label">WhatsApp penetration in Rural India</div></div>
-  <div><div class="stat-num">Zero</div><div class="stat-label">Apps to install for citizens</div></div>
-  <div><div class="stat-num">100%</div><div class="stat-label">Audit trail on every request</div></div>
+  <div><div class="stat-num">10</div><div class="stat-label">Villages covered in Baanki Block</div></div>
+  <div><div class="stat-num">9</div><div class="stat-label">Issue categories supported</div></div>
+  <div><div class="stat-num">Zero</div><div class="stat-label">Apps needed — just WhatsApp</div></div>
 </div>
 
 <!-- PROBLEM -->
@@ -399,23 +375,12 @@
   <div class="launch-inner">
     <div class="launch-badge">
       <div class="launch-badge-dot"></div>
-      GramSahay is going live
+      GramSahay is almost here
     </div>
-    <h2>We're <em>Launching</em> on 14th June 2026</h2>
-    <p>The ticket portal and full coordinator dashboard will go live on launch day. Start reporting your civic issues on WhatsApp today — your ticket will be tracked from day one.</p>
+    <h2>Something <em>Big</em> is Coming</h2>
+    <p>The ticket portal and full coordinator dashboard are on their way. Stay tuned — civic issue reporting for rural India is about to get a lot simpler.</p>
 
-    <div class="launch-date-pill">📅 &nbsp; Official Launch — 14 June 2026</div>
-
-    <div class="countdown-row" id="countdown">
-      <div class="cd-block"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Days</span></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Hours</span></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-block"><span class="cd-num" id="cd-mins">--</span><span class="cd-lbl">Mins</span></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-block"><span class="cd-num" id="cd-secs">--</span><span class="cd-lbl">Secs</span></div>
-    </div>
-
+    <div class="coming-soon-badge">🚀 &nbsp; Coming Soon</div>
 
   </div>
 </section>
@@ -424,35 +389,13 @@
   <div class="footer-logo">Gram<span>Sahay</span></div>
   <div class="footer-links">
     <a href="index.html">Home</a>
-    <a href="tickets.html">Track Ticket</a>
     <a href="privacy.html">Privacy Policy</a>
-    <a href="mailto:whatsappchat190@gmail.com">Contact</a>
+    <a href="mailto:support@gramsahay.in">Contact</a>
   </div>
   <div class="footer-copy">© 2026 GramSahay. All rights reserved.</div>
 </footer>
 
 <script>
-/* ── COUNTDOWN ── */
-function updateCountdown() {
-  var launch = new Date("2026-06-14T00:00:00");
-  var now = new Date();
-  var diff = launch - now;
-  if (diff <= 0) {
-    ["days","hours","mins","secs"].forEach(function(id){ document.getElementById("cd-"+id).textContent = "00"; });
-    return;
-  }
-  var d = Math.floor(diff / 864e5);
-  var h = Math.floor((diff % 864e5) / 36e5);
-  var m = Math.floor((diff % 36e5) / 6e4);
-  var s = Math.floor((diff % 6e4) / 1e3);
-  document.getElementById("cd-days").textContent = String(d).padStart(2,"0");
-  document.getElementById("cd-hours").textContent = String(h).padStart(2,"0");
-  document.getElementById("cd-mins").textContent = String(m).padStart(2,"0");
-  document.getElementById("cd-secs").textContent = String(s).padStart(2,"0");
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
 /* ── STEPS ── */
 var steps = [
   {
